@@ -45,4 +45,18 @@
     // Initialize WOW.js Scrolling Animations
     new WOW().init();
 
+    //console.log($.fn);
+    $('.service-box').readmore({
+        collapsedHeight: 210,
+        moreLink: '<a href=# class="readmore">Ver más</a>',
+        lessLink: '<a href=# class="readmore">Cerrar</a>',
+        embedCSS: false,
+        beforeToggle: function(trigger, element, expanded){
+            console.log(expanded);
+            if(!expanded){
+                ga('send', 'event', $(element).data('category'), 'Abrir', 'AbogadosGLO Servicios');
+            }
+        }
+    });
+
 })(jQuery); // End of use strict
